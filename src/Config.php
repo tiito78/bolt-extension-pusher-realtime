@@ -76,7 +76,9 @@ class Config extends ParameterBag
      */
     public function getContentType($contentType)
     {
+      if (isset($this->contentTypes[$contentType])) {
         return $this->contentTypes[$contentType];
+      }
     }
 
     /**
