@@ -51,10 +51,12 @@ class PusherRealtimeExtension extends SimpleExtension
         $html = '';
 
         if ($config->isValid()) {
-            $html .= '<script src="//js.pusher.com/3.1/pusher.min.js"></script>' . PHP_EOL;
+            $html .= '<script src="https://js.pusher.com/4.3/pusher.min.js"></script>' . PHP_EOL;
             $html .= '<script>' . PHP_EOL;
-            $html .= 'var pusherKey = "' . $config->getAuth()->get('key') . '";' . PHP_EOL;
-            $html .= 'var pusher = new Pusher(pusherKey, {encrypted: true});' . PHP_EOL;
+            $html .= 'var pusher = new Pusher("' . $config->getAuth()->get('key') . '", {
+            cluster: "' . $config->getCluster() .'",
+            forceTLS: '. $config->isEncrypted() .'
+            });' . PHP_EOL;
             $html .= '</script>' . PHP_EOL;
         }
 
