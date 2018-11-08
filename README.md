@@ -5,7 +5,7 @@ This [bolt.cm](https://bolt.cm/) extension enables realtime functionality throug
 
 
 ### Requirements
-- Bolt 3.x installation
+- Bolt 3.6 installation
 - [pusher.com](https://pusher.com) account
 
 ### Installation
@@ -34,7 +34,10 @@ This will render the following HTML in your theme to enable and setup the Pusher
 <script src="//js.pusher.com/3.1/pusher.min.js"></script>
 <script>
     var pusherKey = "YOUR-PUSHER-KEY";
-    var pusher = new Pusher(pusherKey, {encrypted: true});
+    var pusher = new Pusher(pusherKey, {
+    cluester: "YOUR-PUSHER-CLUESTER",
+    forceTLS: true / false
+    });
 </script>
 ``` 
 
